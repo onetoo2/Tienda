@@ -1,0 +1,15 @@
+{% extends 'base/index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<section class="jumbotron">
+	<div class="container mt-3">
+		<h1 class="display-4">Tienda</h1>
+		<p class="lead text-muted p">Selecciona una de las siguientes opciones para ver los registros:</p>
+		<p class="btn">
+			<a href="categorias" class="btn btn-dark my-2">Categorías</a>
+			<a href="productos" class="btn btn-primary my-2">Productos</a>
+		</p>
+	</div>
+</section>
+{% endblock %}

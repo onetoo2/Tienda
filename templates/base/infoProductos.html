@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <tr class="header-productos">
+      <th scope="col">No.</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Disponibilidad</th>
+      <th scope="col">numExist</th>
+      <th scope="col">Categoría</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+ <tbody>
+    {% for producto in object_list %}
+    <tr>
+      <th scope="row">{{producto.id}}</th>
+      <td>{{producto.nomProducto}}</td>
+      <td>{{producto.descripcion}}</td>
+       <td>{{producto.costo}}</td>
+      <td>{{producto.disponibilidad}}</td>
+       <td>{{producto.numExist}}</td>
+      <td>{{producto.categoria.nomCategoria}}</td>
+      <td>
+         <a class="btn btn-primary mb-3" href="{% url 'productos:editarProducto' producto.id %}">Editar</a>
+         <a class="btn btn-primary mb-3" href="{% url 'productos:eliminarProducto' producto.id %}">Eliminar</a>
+      </td>
+
+    </tr>
+    {% empty %}
+      <th>No hay productos registrados</th>
+    {% endfor%}
+  </tbody>
+</table>

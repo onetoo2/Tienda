@@ -1,0 +1,13 @@
+{% extends 'base/index.html' %}
+
+{% block title %}Categorías {% endblock %}
+
+
+{% block content %}
+<div class="container">
+	<h1 class="mt-4 mb-4">Registros de Tienda</h1>
+	<h2 class="mb-4">Categorías</h2>
+	{% include 'base/infoCategorias.html' %}
+	<a class="btn btn-primary mb-3 ml-4" href="{% url 'productos:nuevaCategoria' %}">Nueva categoría</a>
+</div>
+{% endblock %}

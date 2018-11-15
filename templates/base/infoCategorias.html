@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Categoría</th>
+      <th scope="col">Fecha de Creación</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for categoria in categorias %}
+    <tr>
+      <th scope="row">{{categoria.id}}</th>
+      <td>{{categoria.nomCategoria}}</td>
+      <td>{{categoria.fechaCreacion}}</td>
+      <td>
+        <a class="btn btn-primary mb-3" href="{% url 'productos:editarCategoria' categoria.id %}">Editar</a>
+        <a class="btn btn-primary mb-3" href="{% url 'productos:eliminarCategoria' categoria.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% empty %}
+      <th>No hay categorías registradas</th>
+    {% endfor%}
+  </tbody>
+</table>
