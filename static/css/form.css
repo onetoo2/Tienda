@@ -1,0 +1,24 @@
+.form{
+	width: 70%;
+	margin-left: 15%;
+}
+
+.form label{
+	font-size: 1.1rem;
+}
+
+.form input{
+	height: 2rem;
+}
+
+.form button{
+	width: 50%;
+	margin-left: 25%;
+	border: none;
+	background: #30B7A1;
+	border-radius: 5px;
+}
+
+.form button:hover{
+	background: #30B7A1;
+}

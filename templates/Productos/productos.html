@@ -3,10 +3,10 @@
 {% block title %} Productos {% endblock %}
 
 {% block content %}
-<div class="container">
-	<h1 class="mt-4 mb-4">Registros de Tienda</h1>
-	<h2 class="mb-4">Productos</h2>
+<link rel="stylesheet" type="text/css" href="../../static/css/table.css">
+<div class="container tabla">
+	<h1>Productos</h1>
 	{% include 'base/infoProductos.html' %}
-	<a class="btn btn-primary mb-3 ml-4" href="{% url 'productos:nuevoProducto' %}">Nuevo Producto</a>
+	<a class="btn" href="{% url 'productos:nuevoProducto' %}">Nuevo Producto</a>
 </div>
 {% endblock %}

@@ -12,8 +12,8 @@ class CategoriaForm(forms.ModelForm):
 		}
 
 		labels = {
-			'nomCategoria': 'Categoria',
-			'fechaCreacion': 'Creacion',
+			'nomCategoria': 'Categoría',
+			'fechaCreacion': 'Creación',
 		}
 
 		widgets = {

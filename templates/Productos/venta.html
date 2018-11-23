@@ -1,0 +1,89 @@
+{% extends 'base/index.html' %}
+{% load staticfiles %}
+
+{% block title %} Ventas {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="../../static/css/venta.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/table.css">
+<script src="../../static/js/funciones.js"></script>
+<div class="contenedor mt-5">
+	<h1>Carrito de compras</h1>
+	<div class="productos">
+		<h2>Productos disponibles</h2>
+		<div class="tabla">
+			{% include 'base/infoVenta.html' %}
+		</div>
+	</div>
+	<div class="carrito">
+		<h2>Lista de productos</h2>
+		<div class="venta">
+			<table class="table tabla">
+				<thead class="ventaHeader">
+					<tr>
+						<th scope="col">Cantidad</th>
+						<th scope="col">Producto</th>
+						<th scope="col">Costo</th>
+						<th scope="col">Monto</th>
+						<th scope="col">Acción</th>
+					</tr>
+				</thead>
+				<tbody class="cuerpo" id="tablaVenta">
+				</tbody>
+			</table>
+			<table class="ventaTotal">
+				<thead>
+					<tr>
+						<th>Total:</th>
+						<td id="total">$0</td>
+					</tr>
+				</thead>
+			</table>
+			<button id="btnComprar" onclick="navegar()">Comprar</button>
+		</div>
+	</div>
+</div>
+
+<div id="popup" onclick="quitarPopUp()"></div>
+<div id="alerta">
+	<label>Cantidad:</label>
+	<input type="number" name="" id="cantidad">
+	<button onclick="agregarCarrito()">Aceptar</button>
+</div>
+<div id="alerta2">
+	<p id="textoAlerta2"></p>
+	<button class="btn" onclick="quitarPopUp()" onclick="prueba()">Aceptar</button>
+</div>
+
+<script type="text/javascript">
+
+	function navegar(){
+		productos = regresarProductos();
+		existencia = regresarExistencia();
+
+		tabla = document.getElementById('tablaVenta');
+		tabla.innerHTML = "";
+		document.getElementById('total').innerHTML = "$0";
+		for (var i = 0; i < productos.length; i++) {
+			habilitar(productos[i]);
+		}
+
+		p = JSON.stringify(productos);
+		e = JSON.stringify(existencia);
+
+		if(productos.length > 0){
+			url = "{% url 'productos:create' 'z' 'w' %}".replace(/z/, p).replace(/w/, e);
+			window.location.assign(url);
+		}
+		else{
+			mostrarModal('No se han agregado artículos');
+		}
+	}
+
+
+
+</script>
+
+
+{% endblock %}

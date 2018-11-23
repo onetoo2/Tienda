@@ -3,13 +3,17 @@
 
 {% block content %}
 <section class="jumbotron">
-	<div class="container mt-3">
+	<div class="index">
 		<h1 class="display-4">Tienda</h1>
-		<p class="lead text-muted p">Selecciona una de las siguientes opciones para ver los registros:</p>
-		<p class="btn">
-			<a href="categorias" class="btn btn-dark my-2">Categorías</a>
-			<a href="productos" class="btn btn-primary my-2">Productos</a>
-		</p>
+		<p class="lead text-muted p">Selecciona una de las siguientes opciones:</p>
+		<div class="opcionesIndex">
+			<a class="btn" href="{% url 'productos:listaCategorias' %}">Categorías</a>
+			<a class="btn" href="{% url 'productos:listaProductos' %}">Productos</a>
+			<a class="btn" href="{% url 'productos:listaProductos' %}">Ventas</a>
+		</div>
+	</div>
+	<div class="icon">
+		<i class="fas fa-shopping-cart"></i>
 	</div>
 </section>
 {% endblock %}

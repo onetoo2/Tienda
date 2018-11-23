@@ -1,29 +1,21 @@
 <table class="contenidoTabla">
-  <thead class="titulosTabla">
+<thead class="titulosTabla ">
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Producto</th>
       <th scope="col">Descripción</th>
       <th scope="col">Costo</th>
-      <th scope="col">Disponibilidad</th>
       <th scope="col">numExist</th>
-      <th scope="col">Categoría</th>
-      <th scope="col">Acciones</th>
     </tr>
   </thead>
  <tbody class="cuerpoTabla">
     {% for producto in object_list %}
     <tr>
-      <td class="id">{{producto.id}}</td>
       <td>{{producto.nomProducto}}</td>
       <td>{{producto.descripcion}}</td>
        <td>{{producto.costo}}</td>
-      <td>{{producto.disponibilidad}}</td>
        <td>{{producto.numExist}}</td>
-      <td>{{producto.categoria.nomCategoria}}</td>
       <td>
-         <a class="btn" href="{% url 'productos:editarProducto' producto.id %}">Editar</a>
-         <a class="btn" href="{% url 'productos:eliminarProducto' producto.id %}">Eliminar</a>
+         <button class="btn"onclick="agregarCantidad({{producto.id}},'{{producto.nomProducto}}', {{producto.costo}}, {{producto.numExist}})" id="{{producto.id}}" >Agregar</button>
       </td>
 
     </tr>
